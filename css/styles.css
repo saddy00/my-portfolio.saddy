@@ -6587,11 +6587,11 @@ button.bg-dark:focus {
 }
 
 .flex-grow-1 {
+  margin-right: 1em;
   flex-grow: 1 !important;
 }
 
 .flex-shrink-0 {
-  margin-left: 1em;
   flex-shrink: 0 !important;
 }
 
@@ -9778,6 +9778,12 @@ button.bg-dark:focus {
 }
 
 .text-primary {
+  color: #480ca8 !important;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.text-primary-0 {
   color: #480ca8 !important;
 }
 
