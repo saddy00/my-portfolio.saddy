@@ -10093,6 +10093,25 @@ p.lead {
   font-size: 3rem;
 }
 
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
+}
+
+.carousel .carousel-indicators li {
+  background-color: #fff;
+  background-color: rgba(70, 70, 70, 0.25);
+}
+
+.carousel .carousel-indicators .active {
+  background-color: #444;
+}
+
+/* .slide-show {
+  display:flex;
+  flex-flow: row wrap;
+} */
+
 section.resume-section {
   display: flex;
   align-items: center;
