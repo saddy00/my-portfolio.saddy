@@ -10112,16 +10112,36 @@ p.lead {
   flex-direction: column;
 }
 
-.img-container {
-  margin-right: 2.5em;
+.p {
+  white-space: pre-wrap;
+  word-break: keep-all; /*this stops the word breaking*/
+}
+
+.pill-col{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-right: 1em;
+}
+
+.flex-gap {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 1em;
 }
 
 img.img-container {
-  max-width: 500px;
+  max-width: 400px;
   max-height: 400px;
   margin: auto;
-  padding-right: 2.5em;
-  border: 0.25em solid rgba(255, 255, 255, 0.2);
+  margin-right: 2.5em;
+  border-top: 0.25em solid rgba(255, 255, 255, 0);
+}
+
+img.img-icon {
+  max-width: 64px;
+  max-height: 64px;
+  margin: auto;
 }
 
 section.resume-section {
