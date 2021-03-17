@@ -36,7 +36,12 @@
     });
 
     // Activate scrollspy to add active class to navbar items on scroll
-    $("body").scrollspy({
-        target: "#sideNav",
-    });
+    var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+        target: '#navbar-example'
+    })
+
+    // window.setInterval(function() { //setInterval (loop a function)
+    //     $("flip-box-inner").toggleClass("flip-box"); //toggle class "flipped"
+    // }, 3000); // Loop it every 5000 milliseconds
+    
 })(jQuery); // End of use strict
