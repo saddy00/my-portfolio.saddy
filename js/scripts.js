@@ -40,8 +40,14 @@
         target: '#navbar-example'
     })
 
-    // window.setInterval(function() { //setInterval (loop a function)
-    //     $("flip-box-inner").toggleClass("flip-box"); //toggle class "flipped"
-    // }, 3000); // Loop it every 5000 milliseconds
+
+    const container = document.querySelector('.box-container');
+    const contents = document.querySelectorAll('.content');
+    const buttons = document.querySelectorAll('button[type="slide"]');
+
+    buttons.forEach( button => button.addEventListener('click', function() {
+        container.classList.toggle('right-open');
+    }));
+
     
 })(jQuery); // End of use strict

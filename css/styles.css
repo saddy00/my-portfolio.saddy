@@ -10159,17 +10159,7 @@ section.resume-section .resume-section-content {
   width: 100%;
 }
 
-/* ************** */
-/* ************** */
-@-webkit-keyframes flip {
-  from { -webkit-transform: rotateY(0deg); transform: rotateY(0deg); }
-  to { -webkit-transform: rotateY(180deg); transform: rotateY(180deg); }
-}
-
-@keyframes flip {
-  from { -webkit-transform: rotateY(0deg); transform: rotateY(0deg); }
-  to { -webkit-transform: rotateY(180deg); transform: rotateY(180deg); }
-}
+/*** Flip box starts ***/
 
 .flipping {
   page-break-inside: avoid;
@@ -10188,17 +10178,22 @@ section.resume-section .resume-section-content {
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
+.flip-box-containter {
+  position: relative;
+}
+
+.flip-box-containter img-container {
+  display: block; 
+}
+
+.flip-box-containter .btn-light { 
+  position: absolute; 
+  bottom:1px; 
+  right:1px; 
+}
+
 /* This container is needed to position the front and back side */
 .flip-box-inner {
-  /* -webkit-animation-name: flip;
-          animation-name: flip;
-  -webkit-animation-duration: 0.6s;
-          animation-duration: 0.6s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-delay: 4s;
-          animation-delay: 4s; */
-  
   position: relative;
   width: 100%;
   height: 100%;
@@ -10207,9 +10202,304 @@ section.resume-section .resume-section-content {
   transform-style: preserve-3d;
 }
 
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
 
-/*******************/
-/*******************/
+/* Position the front and back side */
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-box-front {
+  background-color: #fff;
+}
+
+/* Style the back side */
+.flip-box-back {
+  background-color: #fff;
+  transform: rotateY(180deg);
+}
+/*** Flip box ends ***/
+
+/*** Timeline start ***/
+#experience-section.row {
+  background-color: #bea6a0;
+}
+.timeline {
+  position: relative;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.timeline ul li {
+  margin-bottom: 50px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.point {
+  min-width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border-radius: 100%;
+  z-index: 2;
+  border: 4px #343a40 solid;
+  position: relative;
+  left: 1px;
+}
+
+.timeline ul li .content {
+  width: 50%;
+  padding: 0 20px;
+}
+
+.timeline ul li:nth-child(odd) .content {
+  padding-left: 0;
+}
+
+.timeline ul li:nth-child(odd) .date {
+  padding-right: 0;
+}
+
+.timeline ul li:nth-child(even) .content {
+  padding-right: 0;
+}
+
+.timeline ul li:nth-child(even) .date {
+  padding-left: 0;
+}
+
+.timeline ul li .date {
+  width: 50%;
+  padding: 0 20px;
+  font-weight: normal;
+}
+
+.timeline ul li .date h4 {
+  background-color: #fffade;
+  width: 150px;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.timeline ul li .date h4:hover {
+  background-color: #e8d5b5;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  /* transform: translateY(-3px); */
+}
+
+.timeline ul li .content h3 {
+  padding: 10px 20px;
+  background-color: #ff744a;
+  margin-bottom: 0;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: white;
+}
+
+.timeline ul li .content h3:hover {
+  background-color: #f61a67;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  /* transform: translateY(-7px); */
+}
+
+.timeline ul li .content p {
+  padding: 10px 20px;
+  background-color: #f9f871;
+  margin-top: 0;
+  text-align: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.timeline ul li:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline ul li:nth-child(even) .date h4 {
+  float: right
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 3px;
+  left: 50%;
+  background-color: #333333;
+}
+
+@media (max-width: 800px) {
+  .point {
+      min-width: 15px;
+      height: 15px;
+  }
+
+  html, body {
+      font-size: 15px;
+  }
+
+}
+
+@media (max-width: 650px) {
+  html, body {
+      font-size: 14px;
+  }
+  
+  .point {
+      min-width: 12px;
+      height: 12px;
+  }
+
+}
+
+@media (max-width: 450px) {
+  html, body {
+      font-size: 10px;
+  }
+
+  p {
+      padding: 10px !important;
+  }
+}
+
+/*** Timeline end ***/
+
+/*** Pill Button Start **/
+.pill-shape-button {
+  width: auto;
+  height: 34px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  }
+
+.pill-shape-button:hover {
+  background-color: #480ca8;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+/*** Pill Button End**/
+
+/*** About Start ***/
+#about-section.row {
+  background-color: #e8d5b5;
+}
+
+#about p {
+  color: black
+}
+/*** About End ***/
+
+/*** Interest Start ***/
+.box-container {
+  margin: 100px auto;
+  width: 100%;
+  height: 590px;
+  display: flex;
+  align-items: stretch;
+  box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.03);
+}
+.box-container.right-open .box1-content {
+  flex: 0;
+  padding: 0;
+  opacity: 0;
+}
+.box-container.right-open .box1-side {
+  flex: 0;
+}
+.box-container.right-open .box2-side {
+  flex: 2;
+}
+.box-container.right-open .box2-content {
+  flex: 4;
+  padding: 30px 40px;
+  opacity: 1;
+}
+.box1-content, .box1-side, .box2-content, .box2-side {
+  transition: all 0.3s ease-out;
+  color: darkslategray;
+  overflow: hidden;
+}
+.box1-side, .box2-side {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.box1-content {
+  background: whitesmoke;
+  flex: 4;
+  padding: 30px 40px; 
+}
+.box1-side {
+  position: relative;
+  background: #bac6d2;
+  display: block;
+  flex-direction:column;
+  flex: 2;
+}
+.box2-side {
+  position: relative;
+  background: #a6bdbd;
+  display: block;
+  flex-direction:column;
+  flex: 0;
+}
+.box2-content {
+  background: whitesmoke;
+  flex: 0;
+}
+
+.box-content {
+  padding: 3%;
+}
+
+.img-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+button.sliding-button{
+  position: absolute;
+  bottom: 1px;
+  left: 33%;
+  background: #11526b;
+  padding: 10px 50px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.32);
+  color: white;
+  margin: 30px 0;
+}
+/*** Interest End ***/
+
 
 /* Panels. */
 .splitview {
@@ -10226,29 +10516,29 @@ section.resume-section .resume-section-content {
   overflow: hidden;
 }
 
-  .panel .content {
-      position: absolute;
-      width: 100vw;
-      min-height: 45vw;
-      color: #FFF;
-  }
+.panel .content {
+    position: absolute;
+    width: 100vw;
+    min-height: 45vw;
+    color: #FFF;
+}
 
-  .panel .description {
-      width: 25%;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      text-align: center;
-  }
+.panel .description {
+    width: 25%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
 
-  .panel img {
-      box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.15);
-      width: 35%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-  }
+.panel img {
+    box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.15);
+    width: 35%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 
 .bottom {
@@ -10256,9 +10546,9 @@ section.resume-section .resume-section-content {
   z-index: 1;
 }
 
-  .bottom .description {
-      right: 5%;
-  }
+.bottom .description {
+    right: 5%;
+}
 
 .top {
   background-color: rgb(77, 69, 173);
@@ -10269,9 +10559,9 @@ section.resume-section .resume-section-content {
   clip-path: polygon(60% 0, 100% 0, 100% 100%, 40% 100%);*/
 }
 
-  .top .description {
-      left: 5%;
-  }
+.top .description {
+    left: 5%;
+}
 
 /* Handle. */
 .handle {
@@ -10311,33 +10601,6 @@ section.resume-section .resume-section-content {
   body {
       font-size: 75%;
   }
-}
-
-
-
-/* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-box:hover .flip-box-inner {
-  transform: rotateY(180deg);
-}
-
-/* Position the front and back side */
-.flip-box-front, .flip-box-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
-}
-
-/* Style the front side (fallback if image is missing) */
-.flip-box-front {
-  background-color: #fff;
-}
-
-/* Style the back side */
-.flip-box-back {
-  background-color: #fff;
-  transform: rotateY(180deg);
 }
 
 @media (min-width: 768px) {
